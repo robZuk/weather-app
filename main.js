@@ -7,8 +7,8 @@ const image = "assets/default-image.png";
 const getData = e => {
   e.preventDefault();
   const value = inputSearch.value;
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${value}&appid=7639715c700c06ad95278d15fad9a110`;
-  const url1 = `https://api.openweathermap.org/data/2.5/forecast?q=${value}&appid=7639715c700c06ad95278d15fad9a110`;
+  const url1 = `https://api.openweathermap.org/data/2.5/weather?q=${value}&appid=7639715c700c06ad95278d15fad9a110`;
+  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${value}&appid=7639715c700c06ad95278d15fad9a110`;
   fetch(url)
     .then(response => {
       //console.log(response);
