@@ -31,6 +31,7 @@ const showData = result => {
   resultArea.innerHTML = ` 
   <div class = "weather__temp">Temperature: ${result.main.temp}</div>
   <div class = "weather__pressure">Pressure:${result.main.pressure}</div>
+  <div class = "weather__humidity">Humidity:${result.main.humidity}</div>
   `;
   // <div class = "film_status">Status: ${film.show.status}</div>s
   // <div class = "film__date">Relase date: ${
