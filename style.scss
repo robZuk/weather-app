@@ -1,0 +1,21 @@
+@import "header";
+@import "main";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  .wrapper {
+    position: relative;
+  }
+  .hidden {
+    display: none;
+  }
+  .active {
+    display: block;
+  }
+}

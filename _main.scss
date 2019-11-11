@@ -1,0 +1,52 @@
+$main-color: #eb6e4b;
+.current_weather {
+  position: absolute;
+  display: grid;
+  margin-left: 3vw;
+  top: calc(8vh + 9vw);
+
+  &__form {
+    &_input {
+      border-style: none;
+      border-radius: 5px;
+      border: 1px solid $main-color;
+      font-size: calc(1.5vw + 1vh);
+      padding: calc(0.5vw + 0.5vh);
+      outline-style: none;
+      color: gray;
+      cursor: pointer;
+      @media (orientation: portrait) {
+        font-size: 3vh;
+      }
+      /* clears the 'X' from Chrome */
+      &::-webkit-search-decoration,
+      &::-webkit-search-cancel-button,
+      &::-webkit-search-results-button,
+      &::-webkit-search-results-decoration {
+        display: none;
+        width: 0;
+        height: 0;
+      }
+    }
+    &_btn {
+      border-style: none;
+      border-radius: 5px;
+      border: 1px solid $main-color;
+      outline-style: none;
+      margin-left: 2vw;
+      color: gray;
+      cursor: pointer;
+      background-color: inherit;
+      font-size: calc(1.5vw + 1vh);
+      padding: calc(0.5vw + 0.5vh);
+      transition: 0.2s;
+      @media (orientation: portrait) {
+        font-size: 3vh;
+      }
+      &:hover {
+        color: white;
+        background-color: $main-color;
+      }
+    }
+  }
+}

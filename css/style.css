@@ -1,0 +1,121 @@
+.header {
+  position: fixed;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: minmax(100px, 20vw) auto;
+      grid-template-columns: minmax(100px, 20vw) auto;
+  -webkit-column-gap: 5px;
+          column-gap: 5px;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+  justify-items: center;
+  background-color: grey;
+  padding: 10px;
+}
+
+.header__image {
+  width: 100%;
+  margin-left: 3.5vw;
+}
+
+.header__title {
+  font-size: 4.4vw;
+  color: white;
+  text-transform: uppercase;
+}
+
+@media (min-width: 767px) {
+  .header__title {
+    font-size: 3.5vw;
+  }
+}
+
+@media (orientation: portrait) {
+  .header__title {
+    font-size: 4vh;
+  }
+}
+
+.current_weather {
+  position: absolute;
+  display: -ms-grid;
+  display: grid;
+  margin-left: 3vw;
+  top: calc(8vh + 9vw);
+}
+
+.current_weather__form_input {
+  border-style: none;
+  border-radius: 5px;
+  border: 1px solid #eb6e4b;
+  font-size: calc(1.5vw + 1vh);
+  padding: calc(0.5vw + 0.5vh);
+  outline-style: none;
+  color: gray;
+  cursor: pointer;
+  /* clears the 'X' from Chrome */
+}
+
+@media (orientation: portrait) {
+  .current_weather__form_input {
+    font-size: 3vh;
+  }
+}
+
+.current_weather__form_input::-webkit-search-decoration, .current_weather__form_input::-webkit-search-cancel-button, .current_weather__form_input::-webkit-search-results-button, .current_weather__form_input::-webkit-search-results-decoration {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.current_weather__form_btn {
+  border-style: none;
+  border-radius: 5px;
+  border: 1px solid #eb6e4b;
+  outline-style: none;
+  margin-left: 2vw;
+  color: gray;
+  cursor: pointer;
+  background-color: inherit;
+  font-size: calc(1.5vw + 1vh);
+  padding: calc(0.5vw + 0.5vh);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+@media (orientation: portrait) {
+  .current_weather__form_btn {
+    font-size: 3vh;
+  }
+}
+
+.current_weather__form_btn:hover {
+  color: white;
+  background-color: #eb6e4b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+body .wrapper {
+  position: relative;
+}
+
+body .hidden {
+  display: none;
+}
+
+body .active {
+  display: block;
+}
+/*# sourceMappingURL=style.css.map */

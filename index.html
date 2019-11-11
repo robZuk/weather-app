@@ -4,32 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Big+Shoulders+Display:400,700,800|Roboto+Condensed:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
 
     <title>Document</title>
   </head>
   <body>
-    <h1>weather app</h1>
-    <div class="current_weather">
-      <form class="current_weather__form" name="form">
-        <input
-          type="search"
-          placeholder="search"
-          name="search"
-          class="current_weather__form_input"
-          autocomplete="off"
+    <div class="wrapper">
+      <div class="header">
+        <img
+          src="images\openweather-negative-logo-RGB.png"
+          class="header__image"
         />
-        <button type="submit" class="current_weather__form_btn">
-          search city
+        <h1 class="header__title">weather app</h1>
+      </div>
+      <div class="current_weather">
+        <form class="current_weather__form" name="form">
+          <input
+            type="search"
+            placeholder="Your city name"
+            name="search"
+            class="current_weather__form_input"
+            autocomplete="off"
+          />
+          <button type="submit" class="current_weather__form_btn">
+            Search
+          </button>
+        </form>
+        <div class="current_weather__list"></div>
+      </div>
+      <div class="hourly_forecast_weather">
+        <button class="hourly_forecast_weather__btn hidden">
+          forecast for 5 days
         </button>
-      </form>
-      <div class="current_weather__list"></div>
-    </div>
-    <div class="hourly_forecast_weather">
-      <button class="hourly_forecast_weather__btn hidden">
-        forecast for 5 days
-      </button>
-      <div class="forecast_weather__list hidden"></div>
+        <div class="forecast_weather__list hidden"></div>
+      </div>
     </div>
   </body>
   <script src="Data.js"></script>

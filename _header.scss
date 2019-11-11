@@ -1,0 +1,28 @@
+.header {
+  position: fixed;
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(100px, 20vw) auto;
+  column-gap: 5px;
+  align-items: end;
+  justify-items: center;
+  background-color: grey;
+  padding: 10px;
+  &__image {
+    //max-width: 20vw;
+    //min-width: 80px;
+    width: 100%;
+    margin-left: 3.5vw;
+  }
+  &__title {
+    font-size: 4.4vw;
+    color: white;
+    text-transform: uppercase;
+    @media (min-width: 767px) {
+      font-size: 3.5vw;
+    }
+    @media (orientation: portrait) {
+      font-size: 4vh;
+    }
+  }
+}

@@ -8,6 +8,12 @@ class Weather {
   }
   ////////////////////////////////////////////////////////////////////////////////////////////////
 
+  // getData(e) {
+  //   this.data.getData(e).then(data => {
+  //     return data;
+  //   });
+  // }
+
   getDataOnSubmit() {
     this.formCurrentWeather.addEventListener("submit", e => {
       this.data.getData(e).then(data => {
