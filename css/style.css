@@ -1,5 +1,6 @@
 .header {
   position: fixed;
+  z-index: 1;
   width: 100%;
   display: -ms-grid;
   display: grid;
@@ -40,10 +41,28 @@
 
 .current_weather {
   position: absolute;
+  width: 100%;
   display: -ms-grid;
   display: grid;
-  margin-left: 3vw;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-grid-rows: auto 3fr;
+      grid-template-rows: auto 3fr;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
   top: calc(8vh + 9vw);
+}
+
+.current_weather__form {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  -ms-grid-column-align: center;
+      justify-self: center;
 }
 
 .current_weather__form_input {
@@ -94,6 +113,83 @@
 .current_weather__form_btn:hover {
   color: white;
   background-color: #eb6e4b;
+}
+
+.current_weather .current_weather__list {
+  margin-left: 10vw;
+  margin-top: 3vh;
+}
+
+.current_weather .current_weather__list_header {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: row;
+  -ms-grid-rows: 3fr 3fr 2fr 2fr;
+      grid-template-rows: 3fr 3fr 2fr 2fr;
+}
+
+@media (orientation: portrait) {
+  .current_weather .current_weather__list_header {
+    -ms-grid-rows: 2fr 3fr 2fr 2fr;
+        grid-template-rows: 2fr 3fr 2fr 2fr;
+  }
+}
+
+.current_weather .current_weather__list_header_city {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+  font-size: calc(1.6vw + 1.6vh);
+  font-weight: 500;
+  color: #eb6e4b;
+}
+
+.current_weather .current_weather__list_header_img {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  width: 8vh;
+}
+
+.current_weather .current_weather__list_header_temp {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  font-size: calc(2vw + 2vh);
+  margin-left: 5vw;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+@media (orientation: portrait) {
+  .current_weather .current_weather__list_header_temp {
+    margin-left: 15vw;
+  }
+}
+
+.current_weather .current_weather__list_header_description {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3/4;
+}
+
+.current_weather .current_weather__list_header_date {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  grid-row: 4/5;
 }
 
 * {
