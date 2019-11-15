@@ -4,10 +4,10 @@ class Show {
       ".current_weather__list"
     );
     this.listForecastWeather = document.querySelector(
-      ".forecast_weather__list"
+      ".current_weather__hourly_forecast__list"
     );
     this.btnForecastWeather = document.querySelector(
-      ".hourly_forecast_weather__btn"
+      ".current_weather__hourly_forecast__btn"
     );
     // this.data = new Data();
     // this.data.getData(e).then(data => {
@@ -31,22 +31,21 @@ class Show {
     const temperature = (result.list[0].main.temp - 273.15).toFixed(0);
     this.resultAreaCurrentWeather.textContent = "";
     const content = `
-    
     <div class="current_weather__list_header">
-    <div class="current_weather__list_header_city">Weather in ${result.city.name}, ${result.city.country}</div>
-    <img class="current_weather__list_header_img" src="http://openweathermap.org/img/wn/${result.list[0].weather[0].icon}.png">
-    <div class="current_weather__list_header_temp">${temperature} &#176;C</div>
-    <div class="current_weather__list_header_description">${result.list[0].weather[0].description}</div>
-    <div class="current_weather__list_header_date">${date}</div>
+    <div class="current_weather__list_header__city">Weather in ${result.city.name}, ${result.city.country}</div>
+    <img class="current_weather__list_header__img" src="http://openweathermap.org/img/wn/${result.list[0].weather[0].icon}.png">
+    <div class="current_weather__list_header__temp">${temperature} &#176;C</div>
+    <div class="current_weather__list_header__description">${result.list[0].weather[0].description}</div>
+    <div class="current_weather__list_header__date">${date}</div>
     </div>
-    <div class="current_weather__list_main">
-    <div class="current_weather__list_sunrise">Sunrise: ${sunrise}</div>
-    <div class="current_weather__list_sunset">Sunset: ${sunset}</div>
-    <div class="current_weather__list_pressure">Pressure: ${result.list[0].main.pressure} hpa</div>
-    <div class="current_weather__list_header_humidity">Humidity: ${result.list[0].main.humidity} %</div>
-    <div class="current_weather__list_header_cloud">Clouds: ${result.list[0].clouds.all} %</div>
-    <div class="current_weather__list_header_wind">Wind: ${result.list[0].wind.speed} m/s</div>
-    </div>
+    <table class="current_weather__list_main">
+    <tr><td>Sunrise</td><td>${sunrise}</td></tr>
+    <tr><td>Sunset</td><td>${sunset}</td></tr>
+    <tr><td>Pressure</td><td>${result.list[0].main.pressure} hpa</td></tr>
+    <tr><td>Humidity</td><td>${result.list[0].main.humidity} %</td></tr>
+    <tr><td>Cloudiness</td><td>${result.list[0].clouds.all} %</td></tr>
+    <tr><td>Wind</td><td>${result.list[0].wind.speed} m/s</td></tr>
+    </table>
     `;
 
     this.resultAreaCurrentWeather.innerHTML = content;
@@ -56,7 +55,7 @@ class Show {
   showHourlyForecastData = result => {
     console.log(result);
     this.listForecastWeather.textContent = "";
-    const title = `<div class="forecast_weather__list_title">5 day forecast weather for ${result.city.name}</div>`;
+    const title = `<div class="current_weather__hourly_forecast_list__title">5 day forecast weather for ${result.city.name}</div>`;
     this.listForecastWeather.innerHTML += title;
     result.list.forEach((list, index) => {
       const date = list.dt_txt.substring(0, 10);

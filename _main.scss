@@ -1,19 +1,43 @@
 $main-color: #eb6e4b;
+
+@mixin button {
+  border-style: none;
+  border-radius: 5px;
+  border: 1px solid $main-color;
+  outline-style: none;
+  color: gray;
+  cursor: pointer;
+  background-color: inherit;
+  padding: calc(0.5vw + 0.5vh);
+  transition: 0.2s;
+  @media (orientation: portrait) {
+    font-size: 2.5vh;
+  }
+  &:hover {
+    color: white;
+    background-color: $main-color;
+  }
+}
 .current_weather {
   position: absolute;
   width: 100%;
-
   display: grid;
   justify-content: center;
   grid-template-rows: auto 3fr;
   grid-template-columns: 1fr 1fr;
-  //margin-left: 3vw;
-  top: calc(8vh + 9vw);
+  top: calc(6vh + 7vw);
+  @media (orientation: portrait) {
+    grid-template-columns: 1fr;
+  }
 
   &__form {
     grid-column: 1/3;
     grid-row: 1/2;
     justify-self: center;
+    @media (orientation: portrait) {
+      justify-self: start;
+      margin-left: 10vw;
+    }
 
     &_input {
       border-style: none;
@@ -25,7 +49,7 @@ $main-color: #eb6e4b;
       color: gray;
       cursor: pointer;
       @media (orientation: portrait) {
-        font-size: 3vh;
+        font-size: 2.5vh;
       }
       /* clears the 'X' from Chrome */
       &::-webkit-search-decoration,
@@ -38,24 +62,9 @@ $main-color: #eb6e4b;
       }
     }
     &_btn {
-      border-style: none;
-      border-radius: 5px;
-      border: 1px solid $main-color;
-      outline-style: none;
-      margin-left: 2vw;
-      color: gray;
-      cursor: pointer;
-      background-color: inherit;
+      @include button;
       font-size: calc(1.5vw + 1vh);
-      padding: calc(0.5vw + 0.5vh);
-      transition: 0.2s;
-      @media (orientation: portrait) {
-        font-size: 3vh;
-      }
-      &:hover {
-        color: white;
-        background-color: $main-color;
-      }
+      margin-left: 2vw;
     }
   }
   .current_weather__list {
@@ -63,24 +72,29 @@ $main-color: #eb6e4b;
     margin-top: 3vh;
     &_header {
       display: grid;
-      grid-auto-flow: row;
+      // grid-auto-flow: row;
       //grid-template-columns: 2fr 1fr;
       grid-template-rows: 3fr 3fr 2fr 2fr;
       @media (orientation: portrait) {
         grid-template-rows: 2fr 3fr 2fr 2fr;
-      }
-      &_city {
-        grid-column: 1/3;
         font-size: calc(1.6vw + 1.6vh);
+      }
+      &__city {
+        grid-column: 1/3;
+        font-size: calc(1.5vw + 1.5vh);
         font-weight: 500;
         color: $main-color;
+        @media (orientation: portrait) {
+          font-size: calc(2.7vw + 2.7vh);
+        }
       }
-      &_img {
+      &__img {
         grid-column: 1/3;
         grid-row: 2/3;
+        justify-self: start;
         width: 8vh;
       }
-      &_temp {
+      &__temp {
         grid-column: 1/3;
         grid-row: 2/3;
         font-size: calc(2vw + 2vh);
@@ -88,16 +102,59 @@ $main-color: #eb6e4b;
         align-self: center;
         @media (orientation: portrait) {
           margin-left: 15vw;
+          font-size: calc(3vw + 3vh);
         }
       }
-      &_description {
+      &__description {
         grid-column: 1/2;
         grid-row: 3/4;
+        font-size: calc(0.7vw + 1.6vh);
+        @media (orientation: portrait) {
+          font-size: calc(1.7vw + 1.7vh);
+        }
       }
-      &_date {
+      &__date {
         grid-column: 1/2;
         grid-row: 4/5;
+        font-size: calc(0.7vw + 1.6vh);
+        @media (orientation: portrait) {
+          font-size: calc(1.7vw + 1.7vh);
+        }
       }
+    }
+    &_main {
+      border-collapse: collapse;
+      border-spacing: 0;
+      @media (orientation: portrait) {
+        font-size: calc(2vw + 2vh);
+      }
+
+      tr:nth-child(odd) {
+        background: #eee;
+      }
+      td {
+        border: 1px solid black;
+        padding: 1vh 2vh;
+      }
+    }
+  }
+  &__hourly_forecast {
+    &__btn {
+      @include button;
+      position: absolute;
+      width: 12vw;
+      top: 20vh;
+      left: 35vw;
+      font-size: calc(1vw + 1vh);
+      display: block;
+      @media (orientation: portrait) {
+        width: auto;
+        top: 70vh;
+        left: 10vw;
+      }
+    }
+    &__list {
+      margin-top: 3vh;
     }
   }
 }
