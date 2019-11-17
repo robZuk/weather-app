@@ -61,7 +61,7 @@
   }
 }
 
-.current_weather__form {
+.current_weather_form {
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-column: 1/3;
@@ -73,14 +73,14 @@
 }
 
 @media (orientation: portrait) {
-  .current_weather__form {
+  .current_weather_form {
     -ms-grid-column-align: start;
         justify-self: start;
     margin-left: 10vw;
   }
 }
 
-.current_weather__form_input {
+.current_weather_form__input {
   border-style: none;
   border-radius: 5px;
   border: 1px solid #eb6e4b;
@@ -93,18 +93,18 @@
 }
 
 @media (orientation: portrait) {
-  .current_weather__form_input {
+  .current_weather_form__input {
     font-size: 2.5vh;
   }
 }
 
-.current_weather__form_input::-webkit-search-decoration, .current_weather__form_input::-webkit-search-cancel-button, .current_weather__form_input::-webkit-search-results-button, .current_weather__form_input::-webkit-search-results-decoration {
+.current_weather_form__input::-webkit-search-decoration, .current_weather_form__input::-webkit-search-cancel-button, .current_weather_form__input::-webkit-search-results-button, .current_weather_form__input::-webkit-search-results-decoration {
   display: none;
   width: 0;
   height: 0;
 }
 
-.current_weather__form_btn {
+.current_weather_form__btn {
   border-style: none;
   border-radius: 5px;
   border: 1px solid #eb6e4b;
@@ -120,22 +120,22 @@
 }
 
 @media (orientation: portrait) {
-  .current_weather__form_btn {
+  .current_weather_form__btn {
     font-size: 2.5vh;
   }
 }
 
-.current_weather__form_btn:hover {
+.current_weather_form__btn:hover {
   color: white;
   background-color: #eb6e4b;
 }
 
-.current_weather .current_weather__list {
+.current_weather .current_weather_list {
   margin-left: 10vw;
   margin-top: 3vh;
 }
 
-.current_weather .current_weather__list_header {
+.current_weather .current_weather_list_header {
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 3fr 3fr 2fr 2fr;
@@ -143,14 +143,14 @@
 }
 
 @media (orientation: portrait) {
-  .current_weather .current_weather__list_header {
+  .current_weather .current_weather_list_header {
     -ms-grid-rows: 2fr 3fr 2fr 2fr;
         grid-template-rows: 2fr 3fr 2fr 2fr;
     font-size: calc(1.6vw + 1.6vh);
   }
 }
 
-.current_weather .current_weather__list_header__city {
+.current_weather .current_weather_list_header__city {
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-column: 1/3;
@@ -160,12 +160,12 @@
 }
 
 @media (orientation: portrait) {
-  .current_weather .current_weather__list_header__city {
+  .current_weather .current_weather_list_header__city {
     font-size: calc(2.7vw + 2.7vh);
   }
 }
 
-.current_weather .current_weather__list_header__img {
+.current_weather .current_weather_list_header__img {
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-column: 1/3;
@@ -177,7 +177,7 @@
   width: 8vh;
 }
 
-.current_weather .current_weather__list_header__temp {
+.current_weather .current_weather_list_header__temp {
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-column: 1/3;
@@ -192,13 +192,13 @@
 }
 
 @media (orientation: portrait) {
-  .current_weather .current_weather__list_header__temp {
+  .current_weather .current_weather_list_header__temp {
     margin-left: 15vw;
     font-size: calc(3vw + 3vh);
   }
 }
 
-.current_weather .current_weather__list_header__description {
+.current_weather .current_weather_list_header__description {
   -ms-grid-column: 1;
   -ms-grid-column-span: 1;
   grid-column: 1/2;
@@ -209,12 +209,12 @@
 }
 
 @media (orientation: portrait) {
-  .current_weather .current_weather__list_header__description {
+  .current_weather .current_weather_list_header__description {
     font-size: calc(1.7vw + 1.7vh);
   }
 }
 
-.current_weather .current_weather__list_header__date {
+.current_weather .current_weather_list_header__date {
   -ms-grid-column: 1;
   -ms-grid-column-span: 1;
   grid-column: 1/2;
@@ -225,32 +225,40 @@
 }
 
 @media (orientation: portrait) {
-  .current_weather .current_weather__list_header__date {
+  .current_weather .current_weather_list_header__date {
     font-size: calc(1.7vw + 1.7vh);
   }
 }
 
-.current_weather .current_weather__list_main {
+.current_weather .current_weather_list_main {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
 @media (orientation: portrait) {
-  .current_weather .current_weather__list_main {
+  .current_weather .current_weather_list_main {
     font-size: calc(2vw + 2vh);
   }
 }
 
-.current_weather .current_weather__list_main tr:nth-child(odd) {
+.current_weather .current_weather_list_main tr:nth-child(odd) {
   background: #eee;
 }
 
-.current_weather .current_weather__list_main td {
+.current_weather .current_weather_list_main td {
   border: 1px solid black;
   padding: 1vh 2vh;
 }
 
-.current_weather__hourly_forecast__btn {
+@media (orientation: portrait) {
+  .current_weather_hourly_forecast {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-column: 1/3;
+  }
+}
+
+.current_weather_hourly_forecast__btn {
   border-style: none;
   border-radius: 5px;
   border: 1px solid #eb6e4b;
@@ -262,34 +270,128 @@
   -webkit-transition: 0.2s;
   transition: 0.2s;
   position: absolute;
-  width: 12vw;
-  top: 20vh;
-  left: 35vw;
+  width: 20vw;
+  top: 15vh;
+  left: 48vw;
   font-size: calc(1vw + 1vh);
   display: block;
 }
 
 @media (orientation: portrait) {
-  .current_weather__hourly_forecast__btn {
+  .current_weather_hourly_forecast__btn {
     font-size: 2.5vh;
   }
 }
 
-.current_weather__hourly_forecast__btn:hover {
+.current_weather_hourly_forecast__btn:hover {
   color: white;
   background-color: #eb6e4b;
 }
 
 @media (orientation: portrait) {
-  .current_weather__hourly_forecast__btn {
+  .current_weather_hourly_forecast__btn {
     width: auto;
-    top: 70vh;
+    top: 72vh;
     left: 10vw;
   }
 }
 
-.current_weather__hourly_forecast__list {
+.current_weather_hourly_forecast_list {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 2fr;
+      grid-template-columns: 1fr 2fr;
   margin-top: 3vh;
+  width: 80%;
+}
+
+@media (orientation: portrait) {
+  .current_weather_hourly_forecast_list {
+    margin-left: 10vw;
+  }
+}
+
+.current_weather_hourly_forecast_list__title {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+  font-size: calc(1.5vw + 1.5vh);
+  font-weight: 500;
+  color: #eb6e4b;
+}
+
+@media (orientation: portrait) {
+  .current_weather_hourly_forecast_list__title {
+    font-size: calc(2.7vw + 2.7vh);
+  }
+}
+
+.current_weather_hourly_forecast_list__date {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+  border: 0.5px solid black;
+  margin-top: 2vh;
+  padding: 1vh 2vh;
+  background: #eee;
+  font-size: calc(0.6vw + 2vh);
+}
+
+.current_weather_hourly_forecast_list_block1 {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 2vh;
+  padding: 2vh 0;
+  font-size: calc(0.6vw + 2vh);
+}
+
+.current_weather_hourly_forecast_list_block2 {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto;
+      grid-template-columns: auto auto auto;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-auto-flow: row;
+  padding: 2vh 0;
+  font-size: calc(0.6vw + 2vh);
+}
+
+.current_weather_hourly_forecast_list_block2__temp {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  background-color: gray;
+  color: white;
+  width: 4.5vw;
+  border-radius: 10px;
+  text-align: center;
+}
+
+@media (orientation: portrait) {
+  .current_weather_hourly_forecast_list_block2__temp {
+    width: 10vw;
+  }
+}
+
+.current_weather_hourly_forecast_list_block2__description {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+  font-style: italic;
 }
 
 * {
@@ -312,6 +414,12 @@ body .hidden {
 }
 
 body .active {
-  display: block;
+  display: -ms-grid;
+  display: grid;
+}
+
+body .border-bottom {
+  border-bottom: 0.5px solid black;
+  margin-left: 0;
 }
 /*# sourceMappingURL=style.css.map */

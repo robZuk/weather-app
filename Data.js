@@ -1,7 +1,7 @@
 class Data {
   constructor() {
     this.inputCurrentWeather = document.querySelector(
-      ".current_weather__form_input"
+      ".current_weather_form__input"
     );
   }
 
@@ -19,6 +19,5 @@ class Data {
     } catch (err) {
       console.log(err);
     }
-    console.log(data);
   };
 }

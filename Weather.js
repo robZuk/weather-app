@@ -1,7 +1,7 @@
 class Weather {
   constructor() {
-    this.formCurrentWeather = document.querySelector(".current_weather__form");
-    this.button = document.querySelector(".current_weather__form_btn");
+    this.formCurrentWeather = document.querySelector(".current_weather_form");
+    this.button = document.querySelector(".current_weather_form__btn");
 
     this.data = new Data();
     this.show = new Show();

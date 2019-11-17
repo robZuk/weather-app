@@ -16,6 +16,10 @@ body {
     display: none;
   }
   .active {
-    display: block;
+    display: grid;
+  }
+  .border-bottom {
+    border-bottom: 0.5px solid black;
+    margin-left: 0;
   }
 }

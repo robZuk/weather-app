@@ -1,18 +1,14 @@
 class Show {
   constructor() {
     this.resultAreaCurrentWeather = document.querySelector(
-      ".current_weather__list"
+      ".current_weather_list"
     );
     this.listForecastWeather = document.querySelector(
-      ".current_weather__hourly_forecast__list"
+      ".current_weather_hourly_forecast_list"
     );
     this.btnForecastWeather = document.querySelector(
-      ".current_weather__hourly_forecast__btn"
+      ".current_weather_hourly_forecast__btn"
     );
-    // this.data = new Data();
-    // this.data.getData(e).then(data => {
-    //   console.log(data);
-    // });
   }
 
   showCurrentWeatherData = result => {
@@ -31,14 +27,14 @@ class Show {
     const temperature = (result.list[0].main.temp - 273.15).toFixed(0);
     this.resultAreaCurrentWeather.textContent = "";
     const content = `
-    <div class="current_weather__list_header">
-    <div class="current_weather__list_header__city">Weather in ${result.city.name}, ${result.city.country}</div>
-    <img class="current_weather__list_header__img" src="http://openweathermap.org/img/wn/${result.list[0].weather[0].icon}.png">
-    <div class="current_weather__list_header__temp">${temperature} &#176;C</div>
-    <div class="current_weather__list_header__description">${result.list[0].weather[0].description}</div>
-    <div class="current_weather__list_header__date">${date}</div>
+    <div class="current_weather_list_header">
+    <div class="current_weather_list_header__city">Weather in ${result.city.name}, ${result.city.country}</div>
+    <img class="current_weather_list_header__img" src="http://openweathermap.org/img/wn/${result.list[0].weather[0].icon}.png">
+    <div class="current_weather_list_header__temp">${temperature} &#176;C</div>
+    <div class="current_weather_list_header__description">${result.list[0].weather[0].description}</div>
+    <div class="current_weather_list_header__date">${date}</div>
     </div>
-    <table class="current_weather__list_main">
+    <table class="current_weather_list_main">
     <tr><td>Sunrise</td><td>${sunrise}</td></tr>
     <tr><td>Sunset</td><td>${sunset}</td></tr>
     <tr><td>Pressure</td><td>${result.list[0].main.pressure} hpa</td></tr>
@@ -55,31 +51,42 @@ class Show {
   showHourlyForecastData = result => {
     console.log(result);
     this.listForecastWeather.textContent = "";
-    const title = `<div class="current_weather__hourly_forecast_list__title">5 day forecast weather for ${result.city.name}</div>`;
+    const title = `<div class="current_weather_hourly_forecast_list__title">5 day forecast weather for ${result.city.name}</div>`;
     this.listForecastWeather.innerHTML += title;
     result.list.forEach((list, index) => {
-      const date = list.dt_txt.substring(0, 10);
+      const date = new Date(list.dt_txt).toDateString();
       const time = list.dt_txt.substring(11, 16);
       const temperature = (list.main.temp - 273.15).toFixed(0);
       let content = "";
 
       time === "00:00" || index === 0 //add date only one a day
-        ? (content += `<div class="date">Date: ${date}</div>`)
+        ? (content += `<div class="current_weather_hourly_forecast_list__date">${date}</div>`)
         : null;
 
-      content += `<div class="forecast_weather__list_block1">
-            <div class="forecast_weather__list_block1_img_time">Time: ${time}</div>
-            <img class="forecast_weather__list_block1_img" src="http://openweathermap.org/img/wn/${list.weather[0].icon}.png">
-            </div>
-            <div class="forecast_weather__list_block2">
-            <div class="forecast_weather__list_block2_temp">${temperature} &#176;C </div>
-            <div class="forecast_weather__list_block2_description">${list.weather[0].description}</div>
-            <div class="forecast_weather__list_block2_temp">${list.wind.speed}m/s, </div>
-            <div class="forecast_weather__list_block2_clouds">Clouds ${list.clouds.all}%, </div>
-            <div class="forecast_weather__list_block2_clouds">${list.main.pressure} hpa </div>
+      time !== "21:00"
+        ? (content += `
+            <div class="current_weather_hourly_forecast_list_block1 border-bottom">`)
+        : (content += `
+            <div class="current_weather_hourly_forecast_list_block1">`);
+      content += `
+            <div class="current_weather_hourly_forecast_list_block1__time">${time}</div>
+            <img class="current_weather_hourly_forecast_list_block1__image" src="http://openweathermap.org/img/wn/${list.weather[0].icon}.png">
             </div>`;
-      this.listForecastWeather.innerHTML += content;
+      time !== "21:00"
+        ? (content += `
+            <div class="current_weather_hourly_forecast_list_block2 border-bottom">`)
+        : (content += `
+            <div class="current_weather_hourly_forecast_list_block2">`);
+      content += `
+            <div class="current_weather_hourly_forecast_list_block2__temp">${temperature} &#176;C </div>
+            <div class="current_weather_hourly_forecast_list_block2__description">${list.weather[0].description}</div>
+            <div class="current_weather_hourly_forecast_list_block2__wind">${list.wind.speed}m/s, </div>
+            <div class="current_weather_hourly_forecast_list_block2__clouds">Clouds ${list.clouds.all}%, </div>
+            <div class="current_weather_hourly_forecast_list_block2__pressure">${list.main.pressure} hpa </div>
+            </div>`;
+
       this.btnForecastWeather.classList.remove("active");
+      this.listForecastWeather.innerHTML += content;
     });
   };
 }
