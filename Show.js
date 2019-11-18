@@ -49,7 +49,6 @@ class Show {
   };
 
   showHourlyForecastData = result => {
-    console.log(result);
     this.listForecastWeather.textContent = "";
     const title = `<div class="current_weather_hourly_forecast_list__title">5 day forecast weather for ${result.city.name}</div>`;
     this.listForecastWeather.innerHTML += title;
